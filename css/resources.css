@@ -245,7 +245,7 @@ ul {
     padding: 0;
 }
 
-a {
+li a {
     color: white;
     text-decoration: none; /* Remove underline */
     padding: 5px 10px; /* Add padding to make links clickable */
