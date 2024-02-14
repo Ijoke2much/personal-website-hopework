@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    display: flex;
+    min-height: 100vh;
+    align-content: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+p {
+    font-size: 16px;
+}
+
+/* START OF VIDEO BACKGROUND */
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Set the video container to full viewport height */
+}
+
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-width: 100%; /* Ensure video covers the entire screen */
+    min-height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover entire container */
+}
+
+/* END OF VIDEO BACKGROUND */
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.885); /* Glass-like background */
+    backdrop-filter: blur(30px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+}
+
+ul {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-evenly;
+    list-style-type: none; /* Remove default bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Add padding to make links clickable */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+li:hover {
+    background-color: #555;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.title {
+    color: black;
+    text-align: center;
+    transform: translateY(-445px);
+}
+
+/* START OF CARD SLIDER CSS  */
+
+/* Whole container of the card content */
+.silder-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;  
+    height: 800px;
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+    border-radius: 10px;
+}
+
+.silder-container .slider-wrapper .item {
+    width: 300px;  
+    height: 350px;
+    position: absolute;
+    /* CONTROLS CARD POSITION */
+    top: 50%; 
+    transform: translate(0, -50%); /* content creates a new stacking content */
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-size: cover;
+    background-position: 50% 50%;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.slider-wrapper .item:nth-child(1),
+.slider-wrapper .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* CARD PLACEMENT CSS STYLING */
+.slider-wrapper .item:nth-child(3) {
+    left: 50%;
+}
+
+.slider-wrapper .item:nth-child(4) {
+    left: calc(50% + 320px);
+}
+
+.slider-wrapper .item:nth-child(5) {
+    left: calc(50% + 640px);
+}
+
+.slider-wrapper .item:nth-child(n + 6) {
+    left: calc(50% + 780px);
+    opacity: 0;
+}
+
+/* END OF CARD PLACEMENT CSS STYLING */
+
+/* content of the cards */
+.item .card-content {
+    position: absolute;
+    top: 30%;
+    left: 5px;
+    width: 300px;
+    text-align: center;
+    transform: translate(0, 50%);
+    /* takes off display of content on card and the main card */
+    display: none; 
+}
+
+.slider-wrapper .item:nth-child(2) .card-content {
+    display: block;
+}
+
+.card-content .name {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out forwards;
+}
+
+/* space out the button */
+.card-content .description {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.card-content button {
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 0.5px solid #000;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.button-links a {
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    width: 60%;
+    height: 60%;
+}
+
+@keyframes animate {
+    from {
+        opacity: 0;
+        transform: translate(0, 200px);
+        filter: (blur33px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.button {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+}
+
+.button button {
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    border: 0.5px solid #000;
+    transition: 0.3s;
+}
+
+.button button:hover {
+    background: #ababab;
+}
+
+/* END OF CARD CSS STYLING */
+
+.footer {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.885); /* Glass-like background */
+    backdrop-filter: blur(30px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: aliceblue;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
