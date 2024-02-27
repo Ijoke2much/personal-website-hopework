@@ -82,7 +82,9 @@ li:hover {
 }
 
 .title {
-    color: black;
+    color: #fff;
+    font-size: 35px;
+    box-shadow: 0 30px 50px #505050;
     text-align: center;
     transform: translateY(-445px);
 }
